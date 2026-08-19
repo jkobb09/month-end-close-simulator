@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Month-End Close Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <p class="eyebrow">Fictional finance workspace</p>
+      <h1>Month-End Close Simulator</h1>
+      <p class="intro">Practice moving through a simple month-end close checklist.</p>
+    </header>
+
+    <section class="summary" aria-label="Close summary">
+      <div>
+        <span class="summary-label">Period</span>
+        <strong>October 2026</strong>
+      </div>
+      <div>
+        <span class="summary-label">Progress</span>
+        <strong id="progress">0 of 5 complete</strong>
+      </div>
+    </section>
+
+    <section class="task-panel" aria-labelledby="tasks-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Checklist</p>
+          <h2 id="tasks-heading">Close tasks</h2>
+        </div>
+        <span class="status" id="status">Not started</span>
+      </div>
+
+      <ul class="task-list">
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Review the moonlight ledger</span>
+          </label>
+          <select class="task-status" aria-label="Status for Review the moonlight ledger">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner">Alex</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Reconcile the espresso reserve</span>
+          </label>
+          <select class="task-status" aria-label="Status for Reconcile the espresso reserve">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner">Jordan</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Confirm cloud inventory counts</span>
+          </label>
+          <select class="task-status" aria-label="Status for Confirm cloud inventory counts">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner">Morgan</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Post the imaginary accruals</span>
+          </label>
+          <select class="task-status" aria-label="Status for Post the imaginary accruals">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner">Taylor</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Prepare the closing snapshot</span>
+          </label>
+          <select class="task-status" aria-label="Status for Prepare the closing snapshot">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner">Riley</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
