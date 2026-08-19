@@ -1,6 +1,8 @@
 const taskCheckboxes = document.querySelectorAll('.task input');
 const taskStatuses = document.querySelectorAll('.task-status');
-const progress = document.querySelector('#progress');
+const completionPercentage = document.querySelector('#completion-percentage');
+const completedTasks = document.querySelector('#completed-tasks');
+const totalTasks = document.querySelector('#total-tasks');
 const status = document.querySelector('#status');
 
 function updateTaskStatus(taskStatus) {
@@ -14,15 +16,22 @@ function updateTaskStatus(taskStatus) {
 }
 
 function updateProgress() {
-  const completedTasks = document.querySelectorAll('.task input:checked').length;
-  const totalTasks = taskCheckboxes.length;
+  const completedTaskCount = [...taskStatuses].filter(
+    (taskStatus) => taskStatus.value === 'Complete'
+  ).length;
+  const totalTaskCount = taskStatuses.length;
+  const completion = totalTaskCount === 0
+    ? 0
+    : Math.round((completedTaskCount / totalTaskCount) * 100);
 
-  progress.textContent = `${completedTasks} of ${totalTasks} complete`;
+  completionPercentage.textContent = `${completion}%`;
+  completedTasks.textContent = `${completedTaskCount} of ${totalTaskCount}`;
+  totalTasks.textContent = totalTaskCount;
 
-  if (completedTasks === totalTasks) {
+  if (completedTaskCount === totalTaskCount) {
     status.textContent = 'Complete';
     status.classList.add('complete');
-  } else if (completedTasks > 0) {
+  } else if (completedTaskCount > 0) {
     status.textContent = 'In progress';
     status.classList.remove('complete');
   } else {
@@ -49,3 +58,5 @@ taskStatuses.forEach((taskStatus) => {
   });
   updateTaskStatus(taskStatus);
 });
+
+updateProgress();
