@@ -217,6 +217,46 @@ h2 {
   white-space: nowrap;
 }
 
+.task-due-date {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 3px;
+  transition: background 160ms ease;
+}
+
+.task-due-date:hover {
+  background: rgba(213, 104, 69, 0.1);
+}
+
+.task-due-date.editing {
+  padding: 0;
+  background: transparent;
+}
+
+.task-due-date-input {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  padding: 4px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent);
+  background: var(--panel);
+}
+
+.task-due-date-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(213, 104, 69, 0.2);
+}
+
 @media (max-width: 560px) {
   .dashboard {
     padding: 40px 0;
