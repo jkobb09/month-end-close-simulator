@@ -110,6 +110,45 @@ h1 {
   box-shadow: 0 18px 45px rgba(25, 37, 34, 0.07);
 }
 
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filter-label {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.owner-filter {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.owner-filter:hover {
+  border-color: var(--accent);
+}
+
+.owner-filter:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(213, 104, 69, 0.2);
+}
+
 .section-heading {
   display: flex;
   align-items: start;
@@ -277,6 +316,19 @@ h2 {
 
   .task-panel {
     padding: 22px 16px;
+  }
+
+  .filter-container {
+    flex-wrap: wrap;
+  }
+
+  .filter-label {
+    flex-basis: 100%;
+  }
+
+  .owner-filter {
+    flex: 1;
+    min-width: 150px;
   }
 
   .task {

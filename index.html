@@ -43,6 +43,20 @@
         <span class="status" id="status">Not started</span>
       </div>
 
+      <div class="filter-container">
+        <label for="owner-filter" class="filter-label">Filter by owner:</label>
+        <select id="owner-filter" class="owner-filter">
+          <option value="">All owners</option>
+          <option value="Alex">Alex</option>
+          <option value="Jordan">Jordan</option>
+          <option value="Morgan">Morgan</option>
+          <option value="Taylor">Taylor</option>
+          <option value="Riley">Riley</option>
+          <option value="Casey">Casey</option>
+          <option value="Sam">Sam</option>
+        </select>
+      </div>
+
       <ul class="task-list">
         <li class="task">
           <label>
@@ -108,6 +122,71 @@
             <option>Complete</option>
           </select>
           <span class="task-owner" data-owner="Riley" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Riley</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Adjust the whimsical depreciation schedules</span>
+          </label>
+          <span class="task-due-date" data-due-date="Oct 15" style="color: #d56845; cursor: pointer; font-weight: bold;" onclick="var newDate = prompt('Enter new due date:', this.dataset.dueDate); if (newDate) { this.dataset.dueDate = newDate; this.textContent = 'Due: ' + newDate; checkOverdueTasks(); }">Due: Oct 15</span>
+          <select class="task-status" aria-label="Status for Adjust the whimsical depreciation schedules">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner" data-owner="Jordan" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Jordan</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Reconcile the phantom expense accounts</span>
+          </label>
+          <span class="task-due-date" data-due-date="Oct 20" style="color: #d56845; cursor: pointer; font-weight: bold;" onclick="var newDate = prompt('Enter new due date:', this.dataset.dueDate); if (newDate) { this.dataset.dueDate = newDate; this.textContent = 'Due: ' + newDate; checkOverdueTasks(); }">Due: Oct 20</span>
+          <select class="task-status" aria-label="Status for Reconcile the phantom expense accounts">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner" data-owner="Sam" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Sam</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Close the stellar revenue ledger</span>
+          </label>
+          <span class="task-due-date" data-due-date="Oct 22" style="color: #d56845; cursor: pointer; font-weight: bold;" onclick="var newDate = prompt('Enter new due date:', this.dataset.dueDate); if (newDate) { this.dataset.dueDate = newDate; this.textContent = 'Due: ' + newDate; checkOverdueTasks(); }">Due: Oct 22</span>
+          <select class="task-status" aria-label="Status for Close the stellar revenue ledger">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner" data-owner="Casey" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Casey</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Verify the mystery investment gains</span>
+          </label>
+          <span class="task-due-date" data-due-date="Oct 28" style="color: #d56845; cursor: pointer; font-weight: bold;" onclick="var newDate = prompt('Enter new due date:', this.dataset.dueDate); if (newDate) { this.dataset.dueDate = newDate; this.textContent = 'Due: ' + newDate; checkOverdueTasks(); }">Due: Oct 28</span>
+          <select class="task-status" aria-label="Status for Verify the mystery investment gains">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner" data-owner="Alex" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Alex</span>
+        </li>
+        <li class="task">
+          <label>
+            <input type="checkbox">
+            <span class="task-name">Finalize the dreamy balance sheet</span>
+          </label>
+          <span class="task-due-date" data-due-date="Oct 30" style="color: #d56845; cursor: pointer; font-weight: bold;" onclick="var newDate = prompt('Enter new due date:', this.dataset.dueDate); if (newDate) { this.dataset.dueDate = newDate; this.textContent = 'Due: ' + newDate; checkOverdueTasks(); }">Due: Oct 30</span>
+          <select class="task-status" aria-label="Status for Finalize the dreamy balance sheet">
+            <option>Not Started</option>
+            <option>In Progress</option>
+            <option>Complete</option>
+          </select>
+          <span class="task-owner" data-owner="Morgan" style="cursor: pointer;" onclick="var newOwner = prompt('Enter owner name:', this.dataset.owner); if (newOwner) { this.dataset.owner = newOwner; this.textContent = newOwner; }">Morgan</span>
         </li>
       </ul>
     </section>

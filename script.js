@@ -48,8 +48,25 @@ document.addEventListener('DOMContentLoaded', function() {
   const completedTasks = document.querySelector('#completed-tasks');
   const totalTasks = document.querySelector('#total-tasks');
   const status = document.querySelector('#status');
+  const ownerFilter = document.querySelector('#owner-filter');
 
   console.log('Script loaded. Found', taskDueDates.length, 'due dates');
+
+  function filterTasksByOwner() {
+    const selectedOwner = ownerFilter.value;
+    console.log('Filtering by owner:', selectedOwner);
+    
+    document.querySelectorAll('.task').forEach((taskElement) => {
+      const ownerSpan = taskElement.querySelector('.task-owner');
+      if (selectedOwner === '' || ownerSpan.textContent === selectedOwner) {
+        taskElement.style.display = '';
+      } else {
+        taskElement.style.display = 'none';
+      }
+    });
+  }
+
+  ownerFilter.addEventListener('change', filterTasksByOwner);
 
   function updateTaskStatus(taskStatus) {
     taskStatus.classList.remove('in-progress', 'complete');
