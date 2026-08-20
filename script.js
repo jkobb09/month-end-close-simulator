@@ -1,13 +1,44 @@
-// Simple function to edit due dates with a prompt
-function makeEditableDate(dueDateElement) {
-  const currentValue = dueDateElement.dataset.dueDate;
-  const newValue = prompt('Enter new due date:', currentValue);
+console.log('script.js loading...');
+
+// Global function for checking overdue tasks
+function checkOverdueTasks() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set to start of day for comparison
+  console.log('Checking overdue tasks. Today is:', today);
   
-  if (newValue !== null && newValue.trim() !== '') {
-    dueDateElement.dataset.dueDate = newValue.trim();
-    dueDateElement.textContent = `Due: ${newValue.trim()}`;
-  }
+  document.querySelectorAll('.task').forEach((taskElement) => {
+    const dueDateSpan = taskElement.querySelector('.task-due-date');
+    const statusSelect = taskElement.querySelector('.task-status');
+    
+    if (dueDateSpan && statusSelect) {
+      const dueDate = parseDate(dueDateSpan.dataset.dueDate);
+      const isComplete = statusSelect.value === 'Complete';
+      const isOverdue = dueDate < today && !isComplete;
+      
+      console.log('Task:', dueDateSpan.textContent, 'Due:', dueDate, 'Complete:', isComplete, 'Overdue:', isOverdue);
+      
+      if (isOverdue) {
+        taskElement.classList.add('overdue');
+      } else {
+        taskElement.classList.remove('overdue');
+      }
+    }
+  });
 }
+
+// Parse dates like "Oct 5" or "August 5"
+function parseDate(dateString) {
+  const today = new Date();
+  const year = today.getFullYear();
+  const dateObj = new Date(dateString + ' ' + year);
+  return dateObj;
+}
+
+// Make sure these are accessible globally
+window.checkOverdueTasks = checkOverdueTasks;
+window.parseDate = parseDate;
+
+console.log('Global functions registered. checkOverdueTasks =', window.checkOverdueTasks);
 
 document.addEventListener('DOMContentLoaded', function() {
   const taskCheckboxes = document.querySelectorAll('.task input');
@@ -28,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (taskStatus.value === 'Complete') {
       taskStatus.classList.add('complete');
     }
+    
+    // Check overdue status after status change
+    checkOverdueTasks();
   }
 
   function updateProgress() {
@@ -53,6 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
       status.textContent = 'Not started';
       status.classList.remove('complete');
     }
+    
+    checkOverdueTasks();
   }
 
   function makeEditable(dueDateElement) {
@@ -144,4 +180,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   updateProgress();
+  checkOverdueTasks();
 });
